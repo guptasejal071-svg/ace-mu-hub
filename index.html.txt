@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ace-MU · The Verified SLRTCE Resource Hub</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- LOADING SCREEN -->
+  <div id="loader" class="loader">
+    <div class="loader-spinner"></div>
+  </div>
+
+  <!-- FLOATING SHAPES BACKGROUND -->
+  <div class="floating-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+    <div class="shape shape-4"></div>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <span class="logo-text">Ace-MU</span>
+        <span class="logo-badge">SLRTCE</span>
+      </div>
+      
+      <div class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#semesters" class="nav-link">Semesters</a>
+        <a href="#resources" class="nav-link">Resources</a>
+        <a href="#student-login" class="nav-link">Student</a>
+        <a href="#admin-login" class="nav-link">Admin</a>
+      </div>
+      
+      <div class="nav-actions">
+        <button class="theme-toggle" id="darkModeToggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title reveal">
+          Ace-MU: The Verified <span class="gradient-text">SLRTCE</span> Resource Hub
+        </h1>
+        <p class="hero-subtitle reveal">Less Searching. More Studying.</p>
+        <div class="hero-cta reveal">
+          <button class="btn btn-primary" id="exploreBtn">
+            <i class="fas fa-compass"></i> Explore Resources
+          </button>
+          <button class="btn btn-outline" id="uploadBtn">
+            <i class="fas fa-cloud-upload-alt"></i> Upload Notes
+          </button>
+        </div>
+      </div>
+      
+      <div class="hero-stats">
+        <div class="stat-card glass-card">
+          <span class="stat-number">500+</span>
+          <span class="stat-label">Resources</span>
+        </div>
+        <div class="stat-card glass-card">
+          <span class="stat-number">50+</span>
+          <span class="stat-label">Gold Notes</span>
+        </div>
+        <div class="stat-card glass-card">
+          <span class="stat-number">1000+</span>
+          <span class="stat-label">Active Users</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEARCH SECTION -->
+    <section class="search-section">
+      <div class="search-container glass-card">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Search subjects, notes, PYQs..." class="search-input">
+        <button id="searchBtn" class="btn btn-primary search-btn">Search</button>
+      </div>
+      <div class="search-filters">
+        <span class="filter-chip active">All</span>
+        <span class="filter-chip">Notes</span>
+        <span class="filter-chip">PYQs</span>
+        <span class="filter-chip">Lab Manuals</span>
+        <span class="filter-chip">Imp Questions</span>
+      </div>
+    </section>
+
+    <!-- SEMESTER DASHBOARD -->
+    <section id="semesters" class="semesters">
+      <h2 class="section-title reveal">
+        <span class="section-title-bg">Dashboard</span>
+        Semester Access
+      </h2>
+      
+      <div class="semester-grid" id="semesterGrid">
+        <!-- Semester cards will be populated by JavaScript -->
+      </div>
+    </section>
+
+    <!-- SUBJECTS & RESOURCES SECTION -->
+    <section id="resources" class="resources">
+      <h2 class="section-title reveal">
+        <span class="section-title-bg">Library</span>
+        Featured Resources
+      </h2>
+      
+      <div class="resource-controls">
+        <div class="semester-tabs" id="semesterTabs">
+          <!-- Semester tabs will be populated by JS -->
+        </div>
+      </div>
+      
+      <div class="resource-grid" id="resourceGrid">
+        <!-- Resource cards will be populated by JavaScript -->
+      </div>
+    </section>
+
+    <!-- LOGIN SECTION - STUDENT & ADMIN -->
+    <section class="login-section">
+      <div class="login-container">
+        <!-- Student Login -->
+        <div class="login-card glass-card" id="student-login">
+          <div class="login-header">
+            <i class="fas fa-user-graduate login-icon"></i>
+            <h3>Student Login</h3>
+          </div>
+          <form class="login-form" id="studentLoginForm">
+            <div class="form-group">
+              <i class="fas fa-id-card"></i>
+              <input type="text" placeholder="Enrollment Number" required>
+            </div>
+            <div class="form-group">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary login-submit">
+              <i class="fas fa-sign-in-alt"></i> Access Resources
+            </button>
+          </form>
+          <div class="login-footer">
+            <a href="#">Forgot password?</a>
+            <span>|</span>
+            <a href="#">New registration</a>
+          </div>
+        </div>
+
+        <!-- Admin Login -->
+        <div class="login-card glass-card" id="admin-login">
+          <div class="login-header">
+            <i class="fas fa-user-shield login-icon"></i>
+            <h3>Admin Login</h3>
+          </div>
+          <form class="login-form" id="adminLoginForm">
+            <div class="form-group">
+              <i class="fas fa-id-badge"></i>
+              <input type="text" placeholder="Admin ID" required>
+            </div>
+            <div class="form-group">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary login-submit">
+              <i class="fas fa-sign-in-alt"></i> Moderate Hub
+            </button>
+          </form>
+          <div class="admin-features">
+            <span class="feature-tip"><i class="fas fa-check-circle"></i> Upload notes</span>
+            <span class="feature-tip"><i class="fas fa-check-circle"></i> Delete content</span>
+            <span class="feature-tip"><i class="fas fa-check-circle"></i> Approve resources</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="logo">Ace-MU</div>
+        <p class="footer-tagline">The Verified SLRTCE Resource Hub</p>
+        <p class="footer-motto">Less Searching. More Studying.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <a href="#">About Us</a>
+          <a href="#">How it Works</a>
+          <a href="#">Gold Badge System</a>
+          <a href="#">FAQs</a>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <a href="#">All Notes</a>
+          <a href="#">PYQs</a>
+          <a href="#">Lab Manuals</a>
+          <a href="#">Important Questions</a>
+        </div>
+        <div class="footer-column">
+          <h4>Support</h4>
+          <a href="#">Contact Us</a>
+          <a href="#">Report Issue</a>
+          <a href="#">Become Contributor</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2024 Ace-MU. All rights reserved. Made with <i class="fas fa-heart"></i> for SLRTCE</p>
+    </div>
+  </footer>
+
+  <!-- NOTIFICATION TOAST -->
+  <div id="notificationToast" class="notification">
+    <i class="fas fa-check-circle"></i>
+    <span class="notification-message">Resource downloaded successfully</span>
+  </div>
+
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
